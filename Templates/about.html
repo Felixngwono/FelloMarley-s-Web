@@ -1,0 +1,125 @@
+{% extends "header.html" %}
+{% load static %}
+{% block content %}
+{% include "Sidebar.html" %}
+
+<div class="ml-64 w-[calc(100%-16rem)] min-h-screen bg-gray-100 p-8">
+    <div class="bg-white p-8 rounded-lg shadow-lg">
+        <!-- Header -->
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gray-800">About Me</h2>
+            <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                Let me share a bit about who I am and what drives me.
+            </p>
+        </div>
+
+        <!-- Profile Image & Introduction -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div class="flex justify-center">
+                <img src="{% static 'images/Fel16.jpg' %}" 
+                     alt="Profile Picture" 
+                     class="w-80 h-80 object-cover rounded-full shadow-md border-4 border-blue-500">
+            </div>
+
+            <div class="space-y-6">
+                <h3 class="text-2xl font-semibold text-gray-800">Hi, I'm Felix Odhiambo!</h3>
+                <p class="text-gray-600 leading-relaxed">
+                    I’m a **Bachelor of Computer Science** graduate passionate about technology, problem-solving, and lifelong learning.
+                    Coming from a large and loving family of eight, my background has shaped my drive and ambitions.
+                </p>
+                <a href="{% url 'gallery' %}" 
+                   class="inline-block px-6 py-3 text-white bg-green-600 rounded-lg font-medium shadow-md hover:bg-green-500 transition">
+                    📸 View Gallery
+                </a>
+            </div>
+        </div>
+
+        <!-- Info Cards Section -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Family -->
+            <div class="bg-blue-50 p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold text-blue-700">My Roots</h4>
+                <p class="mt-2 text-gray-700">
+                    Born to my wonderful parents, **John Olao & Grace Anyango**, I cherish my family deeply. 
+                    I am also a proud grandson to **Olao & Omollo Masella**, whose stories continue to inspire me.
+                </p>
+                <a href="{% url 'siblings_list' %}" class="text-blue-600 font-medium mt-2 inline-block hover:underline">
+                    Learn more about my family →
+                </a>
+            </div>
+
+            <!-- Education -->
+            <div class="bg-orange-50 p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold text-orange-700">My Education</h4>
+                <p class="mt-2 text-gray-700">
+                    From **Ratta Primary & Secondary School** to **Kabarak University**, my academic journey has shaped my love for learning and technology.
+                </p>
+                <a href="{% url 'education_journey' %}" class="text-orange-600 font-medium mt-2 inline-block hover:underline">
+                    View My Education Journey →
+                </a>
+            </div>
+
+            <!-- Passion -->
+            <div class="bg-green-50 p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold text-green-700">My Passion</h4>
+                <p class="mt-2 text-gray-700">
+                    I thrive on **problem-solving, AI innovations, and building impactful projects**. 
+                    My goal is to create tech-driven solutions that make a difference.
+                </p>
+            </div>
+
+            <!-- Fun Facts -->
+            <div class="bg-purple-50 p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold text-purple-700">Fun Facts</h4>
+                <p class="mt-2 text-gray-700">
+                    I’ve memorized the **periodic table for fun**, dream of **climbing Mt. Kilimanjaro**, 
+                    and love **photography**. One of my favorite quotes:  
+                    <span class="italic">“The best way to predict the future is to invent it.” - Alan Kay</span>
+                </p>
+            </div>
+
+            <!-- Current Projects -->
+            <div class="bg-yellow-50 p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold text-yellow-700">What I’m Working On</h4>
+                <p class="mt-2 text-gray-700">
+                    Currently diving into **AI & Machine Learning**, exploring predictive algorithms for fintech solutions. 
+                    I also mentor young tech enthusiasts, helping shape the next generation of innovators.
+                </p>
+            </div>
+
+            <!-- Interests -->
+            <div class="bg-red-50 p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold text-red-700">Outside of Tech</h4>
+                <p class="mt-2 text-gray-700">
+                    Beyond coding, I love **family time, new challenges, and meeting people from different backgrounds**.
+                </p>
+            </div>
+
+            <!-- Achievements -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold text-gray-700">My Achievements</h4>
+                <ul class="mt-2 list-disc pl-6 text-gray-700 space-y-2">
+                    <li>🏆 Won a **regional coding competition**.</li>
+                    <li>📱 Developed a **mobile app for student progress tracking**.</li>
+                    <li>🤖 Built a **smart home automation project** using IoT & AI.</li>
+                    <li>👨‍🏫 Recognized as a **mentor** for aspiring developers.</li>
+                </ul>
+            </div>
+
+            <!-- Volunteering -->
+            <div class="bg-teal-50 p-6 rounded-lg shadow-md">
+                <h4 class="text-xl font-semibold text-teal-700">Giving Back</h4>
+                <p class="mt-2 text-gray-700">
+                    I volunteer at **coding bootcamps**, helping underprivileged youth access technology education.  
+                    Sharing knowledge and inspiring others is my way of giving back.
+                </p>
+            </div>
+        </div>
+
+        <!-- Contact & Footer -->
+        
+    </div>
+</div>
+
+{% include 'footer.html' %}
+{% endblock content %}

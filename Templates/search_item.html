@@ -1,0 +1,26 @@
+{% extends 'header.html' %}
+
+{% block content %}
+{% include "Sidebar.html" %}
+{% load widget_tweaks %}
+{% load static %}
+<div class="ml-64 w-[calc(100%-16rem)]">
+    {% for message in messages %}
+        <p id="messages" class="font-semibold text-lg text-green-500">{{ message }}</p>
+    {% endfor %}
+    {% if searched %}
+    <h1>you searched for  {{ searched}}
+        <br>
+        {% for search in searching %}
+            <a href=''> {{search}}</a>
+        {% endfor %}
+            
+       
+
+        {% else %}
+        <h1>Sorry, you haven't searched anything</h1>
+    {% endif %}
+    
+</div>
+{% include "footer.html" %}
+{% endblock %}

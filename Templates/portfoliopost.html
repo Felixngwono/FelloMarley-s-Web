@@ -1,0 +1,72 @@
+{% extends "header.html" %}
+{% load static %}
+{% block content %}
+{% include "Sidebar.html" %}
+
+<div class="ml-64 w-[calc(100%-16rem)]">
+    <div class="text-green-500 w-1/2 text-center">
+        {% for message in messages %}
+        <p id="messages" class="font-semibold text-lg">{{ message }}</p>
+        {% endfor %}
+    </div>
+
+    <body class="bg-gray-50 text-gray-800" style="background-image: url('{% static 'images/laptop.jpg' %}'); background-size: cover;">
+
+        <!-- Projects Section -->
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold text-white-900 mb-8">My Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                {% for portfolio in portfolios %}
+                <div class="bg-white shadow-lg rounded-lg p-6 transition-transform duration-300 hover:scale-105">
+                    <a href="{% url 'portfolio_details' portfolio.id %}">
+
+                    {% if portfolio.image %}
+                    <img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}" class="w-48 h-48 rounded-full mx-auto mt-4">
+                    {% else %}
+                    <p class="text-gray-500 mt-4">No image available</p>
+                    {% endif %}
+
+                    <h3 class="text-xl sm:text-2xl font-semibold text-gray-900">Title: {{ portfolio.title }}</h3>
+                    <br>
+                    <p class="text-gray-700 mt-2"><strong>Description:</strong> {{ portfolio.description }}</p>
+                    <br>
+                    </a>
+                    <!-- Update & Delete Buttons (Visible to Superuser) -->
+                    {% if request.user.is_superuser %}
+                    <div class="mt-4 text-center">
+                        <a href="{% url 'update_portfolio' portfolio.id %}" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-500 transition-all shadow-md">
+                            ✏️ Update 
+                        </a>
+
+                        <!-- Delete Button -->
+                        
+                            <a href="{% url 'delete_portfolio' portfolio.id %}" class="inline-block bg-red-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-500 transition-all shadow-md">🗑️ Delete </a>
+
+                       
+                    </div>
+                    {% endif %}
+                </div>
+                {% empty %}
+                <p class="text-gray-600">No projects available.</p>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <!-- Add Portfolio Button (Visible to Superuser) -->
+        {% if request.user.is_superuser %}
+        <div class="mt-10 text-center">
+            <a href="{% url 'add_portfolio' %}" class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-500 transition-all shadow-md">
+                ➕ Add Portfolio
+            </a>
+        </div>
+        <br>
+        {% endif %}
+
+    </body>
+</div>
+    {% include "footer.html" %}
+
+
+{% endblock content %}

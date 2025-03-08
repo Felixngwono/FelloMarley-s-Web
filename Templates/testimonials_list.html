@@ -1,0 +1,38 @@
+{% extends "header.html" %}
+{% load static %}
+{% block content %}
+{% include "Sidebar.html" %}
+{% load widget_tweaks %}
+
+<div class="ml-64 w-[calc(100%-16rem)] p-8">
+    <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">Testimonials</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for testimonial in testimonials %}
+            <div class="bg-white shadow-lg rounded-lg p-6 text-center transition duration-300 hover:shadow-xl">
+                {% if testimonial.image %}
+                    <img src="{{ testimonial.image.url }}" alt="Profile Picture"
+                         class="w-40 h-40 rounded-full mx-auto mb-4 border-2 border-green-500">
+                {% else %}
+                    <div class="w-20 h-20 rounded-full mx-auto mb-4 bg-gray-300 flex items-center justify-center text-gray-500">
+                        No Image
+                    </div>
+                {% endif %}
+                
+                <h3 class="text-xl font-semibold text-gray-900">{{ testimonial.name }}</h3>
+                <p class="text-sm text-gray-500 mb-2">{{ testimonial.designation }}</p>
+                <p class="text-gray-700 italic">"{{ testimonial.message }}"</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center mt-8">
+        <a href="{% url 'add_testimonial' %}"  
+           class="inline-block bg-green-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-green-500 shadow-md transition-all">
+            ➕ Add Testimonial
+        </a>
+    </div>
+</div>
+
+{% include "footer.html" %}
+{% endblock content %}

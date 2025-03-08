@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>FelloMarley Foundation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Portfolio, Felix Odhiambo" />
+    <meta name="description" content="Portfolio website for Felix Odhiambo" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="{% static 'img/fel16.jpg' %}" rel="icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-1/4 bg-gray-900 text-white flex flex-col items-center py-8">
+            <img class="w-48 h-48 rounded-full border-4 border-green-500 mb-4" src="{% static 'images/Fel14.jpg' %}" alt="Profile Picture"/>
+            <h1 class="text-2xl font-bold">Felix Odhiambo</h1>
+            <p class="text-gray-400 text-center px-4 mt-2">Software Developer | Tech Enthusiast | Innovator</p>
+            <div class="flex mt-4 space-x-4">
+                <a href="#" class="p-2 bg-gray-800 rounded-full hover:bg-gray-700"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="p-2 bg-gray-800 rounded-full hover:bg-gray-700"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="p-2 bg-gray-800 rounded-full hover:bg-gray-700"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="p-2 bg-gray-800 rounded-full hover:bg-gray-700"><i class="fab fa-instagram"></i></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1">
+            <!-- Navbar -->
+            <header class="bg-gray-800 p-4 flex justify-between items-center">
+                <h1 class="text-xl text-white font-bold">FelloMarley Foundation</h1>
+                <nav class="space-x-6 text-white">
+                    <a href="{% url 'signup' %}" class="hover:text-green-500"><i class="fa-solid fa-user-plus text-xl"></i> Sign Up</a>
+                    <a href="{% url 'login' %}" class="hover:text-blue-500"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                </nav>
+            </header>
+
+            <!-- Hero Section -->
+            <section class="bg-gray-200 py-12 text-center">
+                <h1 class="text-4xl font-bold">Welcome to FelloMarley Foundation</h1>
+                <p class="text-gray-700 mt-4 text-lg">Explore my projects, skills, and journey as a software developer.</p>
+            </section>
+
+            <!-- About Me -->
+            <section class="py-12 text-center">
+                <h2 class="text-3xl font-bold">About Me</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">I am a passionate software developer dedicated to building innovative solutions that enhance user experience. My journey into tech stems from a love for problem-solving.</p>
+            </section>
+
+            <!-- Skills -->
+            <section class="bg-gray-100 py-12 text-center">
+                <h2 class="text-3xl font-bold">Skills</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 px-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fab fa-python text-4xl text-blue-500"></i>
+                        <h3 class="text-xl font-semibold mt-2">Python</h3>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fab fa-js text-4xl text-yellow-500"></i>
+                        <h3 class="text-xl font-semibold mt-2">JavaScript</h3>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fab fa-html5 text-4xl text-orange-500"></i>
+                        <h3 class="text-xl font-semibold mt-2">HTML5</h3>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <i class="fab fa-css3 text-4xl text-blue-500"></i>
+                        <h3 class="text-xl font-semibold mt-2">CSS3</h3>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section class="py-12 text-center">
+                <h2 class="text-3xl font-bold">Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 mt-6">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{% static 'images/carousel-2.jpg' %}" class="w-full h-48 object-cover" alt="Project 1"/>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Project 1</h3>
+                            <p class="text-gray-600 mt-2">An overview of the project's purpose and technology stack.</p>
+                            <a href="#" class="text-green-500 hover:underline mt-4 inline-block">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{% static 'images/laptop.jpg' %}" class="w-full h-48 object-cover" alt="Project 2"/>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Project 2</h3>
+                            <p class="text-gray-600 mt-2">An overview of the project's purpose and technology stack.</p>
+                            <a href="#" class="text-green-500 hover:underline mt-4 inline-block">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="{% static 'images/carousel-3.jpg' %}" class="w-full h-48 object-cover" alt="Project 3"/>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold">Project 3</h3>
+                            <p class="text-gray-600 mt-2">An overview of the project's purpose and technology stack.</p>
+                            <a href="#" class="text-green-500 hover:underline mt-4 inline-block">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

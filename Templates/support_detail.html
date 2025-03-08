@@ -1,0 +1,23 @@
+{% extends "header.html" %}
+{% block content %}
+{% load widget_tweaks %}
+{% load static %}
+{% include "sidebar.html" %}
+
+<div class="ml-64 w-[calc(100%-16rem)] min-h-screen bg-gray-100 p-8 flex justify-center items-center">
+
+    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+        <h1 class="text-white text-3xl font-bold drop-shadow-lg">{{ support.title }}</h1>
+    </div><p><strong>Category:</strong> {{ support.get_category_display }}</p>
+<p><strong>Priority:</strong> {{ support.get_priority_display }}</p>
+<p><strong>Status:</strong> {{ support.get_status_display }}</p>
+<p><strong>Description:</strong> {{ support.description }}</p>
+{% if support.attachment %}
+    <p><strong>Attachment:</strong> <a href="{{ support.attachment.url }}" target="_blank">View File</a></p>
+{% endif %}
+<a href="{% url 'support_update' support.pk %}">Edit</a>
+<a href="{% url 'support_delete' support.pk %}">Delete</a>
+<a href="{% url 'support' %}">Back to list</a>
+</div>
+{% include "footer.html" %} 
+{% endblock %}
